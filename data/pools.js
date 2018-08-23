@@ -25,52 +25,52 @@ module.exports = [
 		participants: [],
 	},
 	{
-		name: 'First Lobby',
-		entry: 10,
-		participants: [],
-	},
-	{
-		name: ':)',
-		entry: 100,
-		participants: [],
-	},
-	{
-		name: 'Friends',
-		entry: 100,
-		participants: [],
-	},
-	{
-		name: '$$$$$$$',
+		name: 'come join',
 		entry: 1000,
 		participants: [],
 	},
 	{
-		name: 'Low Rollers',
-		entry: 1,
-		participants: [],
-	},
-	{
-		name: 'First Lobby',
-		entry: 10,
-		participants: [],
-	},
-	{
-		name: ':)',
+		name: 'woooooo',
 		entry: 100,
 		participants: [],
 	},
 	{
-		name: 'Friends',
+		name: '100',
 		entry: 100,
 		participants: [],
 	},
 	{
-		name: '$$$$$$$',
+		name: 'bet',
 		entry: 1000,
 		participants: [],
 	},
 	{
-		name: 'Low Rollers',
+		name: 'smal bets',
+		entry: 10,
+		participants: [],
+	},
+	{
+		name: 'ez money',
+		entry: 100,
+		participants: [],
+	},
+	{
+		name: '!',
+		entry: 100,
+		participants: [],
+	},
+	{
+		name: '100000000',
+		entry: 100,
+		participants: [],
+	},
+	{
+		name: 'play',
+		entry: 10,
+		participants: [],
+	},
+	{
+		name: '..',
 		entry: 1,
 		participants: [],
 	}
