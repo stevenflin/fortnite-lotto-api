@@ -1,11 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user');
+const Users = require('../models/user');
 
 router.get('/', function(req, res) {
-  User.find({}, (err, users) => {
+  Users.find({}, (err, users) => {
   	res.json({users});
   });
+});
+
+router.get('/default', function(req, res) {
+	Users.findOne({name: 'Ninja'}, (err, user) => {
+		res.json({activeUser: user});
+	});
 });
 
 module.exports = router;
