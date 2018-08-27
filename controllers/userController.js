@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-const UserRepository = require('../repositories/userRepository');
+const UserService = require('../services/userService');
 
-router.get('/', function(req, res) {
-	UserRepository.findAll()
-	.then(users => res.json({users}));
+router.get('/', async function(req, res) {
+	let users = await UserService.findAll();
+	res.json({users});
 });
 
-router.get('/default', function(req, res) {
-	UserRepository.findByField({field: 'name', value: 'Ninja'})
-	.then(user => res.json({activeUser: user}));
+router.get('/default', async function(req, res) {
+	let activeUser = await UserService.findByField({field: 'name', value: 'Ninja'});
+	res.json({activeUser});
 });
 
 module.exports = router;

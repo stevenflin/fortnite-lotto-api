@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 const userController = require('./controllers/userController');
 const poolController = require('./controllers/poolController');
+const recordController = require('./controllers/recordController');
 
 require('dotenv').config();
 
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
 
 app.use('/api/users', userController);
 app.use('/api/pools', poolController);
+app.use('/api/records', recordController);
 
 app.listen(port);
 

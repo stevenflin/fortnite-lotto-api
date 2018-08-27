@@ -7,7 +7,7 @@ const WIN = 'WIN';
 const LOSS = 'LOSS';
 const fortyFiveMinutes = 45 * 60 * 1000;
 
-const UserPoolSchema = new Schema({
+const RecordSchema = new Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
@@ -30,8 +30,8 @@ const UserPoolSchema = new Schema({
   timeEnd: {
     type: Date,
     required: true,
-    default: this.timeStart + fortyFiveMinutes,
+    default: Date.now() + fortyFiveMinutes,
   }
 });
 
-module.exports = mongoose.model('UserPool', UserPoolSchema);
+module.exports = mongoose.model('Record', RecordSchema);

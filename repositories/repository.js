@@ -23,14 +23,14 @@ module.exports = class Repository {
   }
 
   findByField({field, value}) {
-    console.log(`Finding ${this.model} with ${field}: ${value}...`)
+    console.log(`Finding ${this.model} with ${field}: ${value}...`);
     return mongoose.model(this.model).findOne({[field]: value});
   }
 
   // Update Methods
-  updateById(id) {
+  updateById(id, updates) {
     console.log(`Updating ${this.model} with Id: ${id}...`);
-    return mongoose.model(this.model).findByIdAndUpdate(id);
+    return mongoose.model(this.model).findByIdAndUpdate(id, updates);
   }
 
   // Delete Methods
