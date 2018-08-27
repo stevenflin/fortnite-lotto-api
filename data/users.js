@@ -4,6 +4,6 @@ module.exports = [
 		balance: 500,
 		gamesPlayed: 10,
 		wins: 2,
-		activePools: [],
+		activePools: 0,
 	}
 ]

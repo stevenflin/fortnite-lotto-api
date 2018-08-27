@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const usersController = require('./controllers/usersController');
-const poolsController = require('./controllers/poolsController');
+const userController = require('./controllers/userController');
+const poolController = require('./controllers/poolController');
 
 require('dotenv').config();
 
@@ -22,8 +22,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api/users', usersController);
-app.use('/api/pools', poolsController);
+app.use('/api/users', userController);
+app.use('/api/pools', poolController);
 
 app.listen(port);
 
