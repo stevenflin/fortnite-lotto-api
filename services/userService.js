@@ -7,8 +7,8 @@ class UserService extends Service {
   }
 
   incrementActivePoolsByUserId(userId) {
-    let updateQuery = {$inc : {activePools: 1}}
-    this.updateById(userId, updateQuery);
+    let updateQuery = { $inc : { activePools: 1 } };
+    return this.updateById(userId, updateQuery);
   }
 }
 

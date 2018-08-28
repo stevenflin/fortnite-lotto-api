@@ -34,4 +34,6 @@ const RecordSchema = new Schema({
   }
 });
 
+RecordSchema.index({ userId: 1, poolId: 1 }, { unique: true });
+
 module.exports = mongoose.model('Record', RecordSchema);

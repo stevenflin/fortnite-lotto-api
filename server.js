@@ -7,7 +7,6 @@ const poolController = require('./controllers/poolController');
 const recordController = require('./controllers/recordController');
 
 const authRoutes = require('./routes/auth-routes.js');
-const passportSetup = require('./routes/passport-setup.js');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
 
