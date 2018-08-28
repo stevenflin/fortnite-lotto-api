@@ -2,15 +2,27 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const usersController = require('./controllers/usersController');
-const poolsController = require('./controllers/poolsController');
+const userController = require('./controllers/userController');
+const poolController = require('./controllers/poolController');
 const authRoutes = require('./routes/auth-routes');
 
 const passportSetup = require('./routes/passport-setup');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 
 require('dotenv').config();
 
 const app = express();
+
+// set up cookie session
+app.use(cookieSession({
+	maxAge: 24 * 60 * 60 * 1000,
+	keys: [process.env.cookieKey]
+}));
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
@@ -25,8 +37,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api/users', usersController);
-app.use('/api/pools', poolsController);
+app.use('/api/users', userController);
+app.use('/api/pools', poolController);
 app.use('/api/auth/', authRoutes);
 
 app.listen(port);
