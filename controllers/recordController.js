@@ -7,7 +7,7 @@ const PoolService = require('../services/poolService');
 
 router.post('/', async function(req, res) {
   await RecordService.create(req.body.record);
-  await UserService.incrementActivePoolsByUserId(req.body.record.userId);
+  await UserService.updateActivePoolsGamesPlayedAndBalanceByUserId(req.body.record.userId, req.body.entry);
   await PoolService.incrementParticipantsByPoolId(req.body.record.poolId);
   res.sendStatus(200);
 });

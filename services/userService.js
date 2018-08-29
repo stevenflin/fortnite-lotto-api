@@ -6,8 +6,14 @@ class UserService extends Service {
     super(userRepository);
   }
 
-  incrementActivePoolsByUserId(userId) {
-    let updateQuery = { $inc : { activePools: 1 } };
+  updateActivePoolsGamesPlayedAndBalanceByUserId(userId, entry) {
+    let updateQuery = { 
+      $inc : { 
+        gamesPlayed: 1,
+        activePools: 1,
+        balance: -entry,
+      } 
+    };
     return this.updateById(userId, updateQuery);
   }
 }
