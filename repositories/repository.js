@@ -1,41 +1,35 @@
 const mongoose = require('mongoose');
 
 module.exports = class Repository {
-  constructor(model) {
-    this.model = model;
+  constructor(collectionName) {
+    this.collection = mongoose.model(collectionName);
   }
 
   // Create Methods
   create(model) {
-    console.log(`Creating new ${this.model}...`);
-    return mongoose.model(this.model).create(model);
+    return this.collection.create(model);
   }
 
   // Read Methods
   findAll() {
-    console.log(`Finding all ${this.model}s...`);
-    return mongoose.model(this.model).find({});
+    return this.collection.find({});
   }
 
   findById(id) {
-    console.log(`Finding ${this.model} with Id: ${id}...`);
-    return mongoose.model(this.model).findById(id);
+    return this.collection.findById(id);
   }
 
   findByField({field, value}) {
-    console.log(`Finding ${this.model} with ${field}: ${value}...`);
-    return mongoose.model(this.model).findOne({[field]: value});
+    return this.collection.findOne({[field]: value});
   }
 
   // Update Methods
   updateById(id, updates) {
-    console.log(`Updating ${this.model} with Id: ${id}...`);
-    return mongoose.model(this.model).findByIdAndUpdate(id, updates);
+    return this.collection.findByIdAndUpdate(id, updates);
   }
 
   // Delete Methods
   deleteById(id) {
-    console.log(`Deleting ${this.model} with Id: ${id}...`);
-    return mongoose.model(this.model).findByIdAndDelete(id);
+    return this.collection.findByIdAndDelete(id);
   }
 }
