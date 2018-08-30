@@ -15,12 +15,16 @@ module.exports = class Repository {
     return this.collection.find({});
   }
 
+  find(query) {
+    return this.collection.find(query);
+  }
+
   findById(id) {
     return this.collection.findById(id);
   }
 
-  findByField({field, value}) {
-    return this.collection.findOne({[field]: value});
+  findOne(query) {
+    return this.collection.findOne(query);
   }
 
   // Update Methods
