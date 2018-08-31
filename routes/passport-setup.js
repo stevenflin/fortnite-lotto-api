@@ -22,7 +22,6 @@ passport.use(
     User.findOne({ googleId: profile.id })
     .then((currentUser) => {
       if (currentUser) {
-        console.log('The current user is:', currentUser);
         done(null, currentUser);
       }
       else {
@@ -33,7 +32,6 @@ passport.use(
         })
         .save()
         .then((newUser) => {
-          console.log('New User Created: ', newUser);
           done(null, newUser);
         })
       }

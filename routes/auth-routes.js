@@ -82,7 +82,7 @@ router.get('/google', passport.authenticate('google', {
 
 // auth callback for google
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  res.send(req.user);
+  res.send('Successfully authorized with Google OAuth :)');
 });
 
 module.exports = router;
