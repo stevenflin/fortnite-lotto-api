@@ -7,6 +7,15 @@ class PoolRepository extends Repository {
     super('Pool');
   }
 
+  findAllOpen(poolIds) {
+    let findQuery = {
+      _id: {
+        $nin: poolIds.map(poolId => mongoose.Types.ObjectId(poolId))
+      }
+    }
+    return this.find(findQuery);
+  }
+
   incrementParticipantsByPoolId(poolId) {
     let updateQuery = { $inc : { participants: 1 } };
     return this.updateById(poolId, updateQuery);

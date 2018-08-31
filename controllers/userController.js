@@ -17,6 +17,12 @@ router.get('/default', async function(req, res) {
 
 router.get('/:userId/pools', async function(req, res) {
 	let poolIds = await RecordRepository.findPoolIdsByUserId(req.params.userId);
+	let pools = await PoolRepository.findAllOpen(poolIds);
+	res.json({pools});
+});
+
+router.get('/:userId/pools/joined', async function(req, res) {
+	let poolIds = await RecordRepository.findPoolIdsByUserId(req.params.userId);
 	let pools = await PoolRepository.findByIds(poolIds);
 	res.json({pools});
 });
