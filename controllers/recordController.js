@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const RecordService = require('../services/recordService');
-const UserService = require('../services/userService');
+const RecordRepository = require('../repositories/recordRepository');
+const PoolRepository = require('../repositories/poolRepository');
+const UserRepository = require('../repositories/userRepository');
 
 router.post('/', async function(req, res) {
-  await RecordService.create(req.body.record);
-  await UserService.incrementActivePoolsByUserId(req.body.record.userId);
+  let { record, entry } = req.body;
+  await RecordRepository.create(record);
+  await PoolRepository.incrementParticipantsByPoolId(record.poolId);
+  await UserRepository.updateActivePoolsGamesPlayedAndBalanceByUserId(record.userId, entry);
   res.sendStatus(200);
 });
 

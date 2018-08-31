@@ -24,7 +24,7 @@ Create a ```.env``` file
 
 ```
 cd <PATH_TO_PROJECT>
-mkdir .env
+touch .env
 ```
 
 Add the following path variable to the ```.env``` file replacing the value with your MONGODB_URI
