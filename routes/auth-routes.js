@@ -77,12 +77,12 @@ router.get('/logout', (req, res) => {
 
 // auth with google
 router.get('/google', passport.authenticate('google', {
-  scope: ['profile']
+  scope: ['profile', 'email']
 }));
 
 // auth callback for google
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  res.send('Success, you have verified your account with Google.')
+  res.send(req.user);
 });
 
 module.exports = router;
