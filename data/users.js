@@ -5,5 +5,7 @@ module.exports = [
 		gamesPlayed: 10,
 		wins: 2,
 		activePools: 0,
+		password: 'password',
+		email: 'b@b',
 	}
 ]
